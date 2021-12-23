@@ -2,9 +2,9 @@ FROM golang:1.11.4-alpine
 MAINTAINER XuXuebin <ddsbn@126.com>
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
-RUN apk add --no-cache git make openssl
+RUN apk add --no-cache git make openssl tzdata
 env GIT_SSL_NO_VERIFY=true
-
+RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN git clone https://ghproxy.com/https://github.com/XuXuebin/ngrok.git /ngrok
 RUN git clone https://ghproxy.com/https://github.com/jteeuwen/go-bindata /ngrok/src/github.com/jteeuwen/go-bindata
 RUN git clone https://ghproxy.com/https://github.com/gorilla/websocket /ngrok/src/github.com/gorilla/websocket
