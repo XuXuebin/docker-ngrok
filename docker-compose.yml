@@ -1,9 +1,9 @@
 server:
   image: xuxuebin/ngrok
   ports:
-    - "8082:80"
-    - "4432:443"
-    - "4443:4443"
+    - "44063:80"
+    - "32782:443"
+    - "32783:4443"
   volumes:
     - ./data/ngrok:/myfiles
   environment:
